@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Management System</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center"><h1>Appointment Management System</h1> </div><br/>
+            <div class="card mx-auto col-md-6 col-md-offset-3 py-2 p-5 mt-3">
+           
+            <div class="card-body"><h3 class="card-title text-center">Create Appointment</h3> </div>          
+                <form class="">
+                    <div class="row">
+                        <div class="col-md-3 form-group"><label for="title">Title:</label></div>
+                        <div class="col-md-9 form-group">
+                            <input type="text" [(ngModel)]="newAppointmentTitle" class="form-control" id="title" name="title" placeholder="Title" ><br><br>   
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 form-group">
+                            <label for="date">Date:</label>
+                        </div>
+                        <div class="col-md-9 form-group">
+                            <input type="date" [(ngModel)]="newAppointmentDate" class="form-control" id="date" name="date" placeholder="Date"><br><br>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-6 col-md-offset-3 mx-auto">
+                            <button (click)="addAppointment();" class="btn btn-primary btn-block">Add Appointment</button>
+                        </div>
+                    </div>                
+                </form>           
+            </div>
+        </div>
+       
+        <div class="card py-2 p-5 mt-3">
+            <div class="card-body"><h3 class="card-title text-center">Appointment List</h3> </div>
+            <div class="table">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let appointment of appointments; let i = index">
+                            <td>{{ appointment.title }}</td>
+                            <td>{{ appointment.date }}</td>
+                            <td><button (click)="deleteAppointment(i);" class="btn btn-danger">Delete</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
+
+
+
